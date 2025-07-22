@@ -12,8 +12,10 @@ struct ListRowView: View {
     let title: String
     
     var body: some View {
-        HStack{
-            Text(title)
+        NavigationLink(destination: DetailView(tripName: title)){
+            HStack{
+                Text(title)
+            }
         }
     }
 }

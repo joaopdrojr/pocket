@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddView: View {
-    @State private var tripName: String = ""
+    @State var tripName: String = ""
     
     var body: some View {
         ScrollView{
