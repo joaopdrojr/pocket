@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ItemListRowView: View {
-//    let tripName: String
     let items: ItemModel
     
     var body: some View {
@@ -16,7 +15,7 @@ struct ItemListRowView: View {
             Image(systemName: items.isChecked ? "checkmark.circle.fill" : "circle")
                 .foregroundStyle(items.isChecked ? .green : .black)
             
-            Text(items.itemName)
+            Text(items.name)
             
             Spacer()
         }
@@ -26,6 +25,6 @@ struct ItemListRowView: View {
 }
 
 #Preview {
-    ItemListRowView(items: .init(itemName: "T-Shirt", isChecked: true))
-    ItemListRowView(items: .init(itemName: "Pants", isChecked: false))
+    ItemListRowView(items: .init(name: "T-Shirt", isChecked: true))
+    ItemListRowView(items: .init(name: "Pants", isChecked: false))
 }

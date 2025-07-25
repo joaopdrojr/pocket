@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct ListView: View {
-    @State var trips: [String] = [
-        "First trip",
-        "Second trip",
-        "Third trip"
-    ]
+    @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
         List{
-            ForEach(trips, id: \.self) { trip in
-                ListRowView(title: trip)
+            ForEach(listViewModel.items) { item in
+                HStack{
+                    ItemListRowView(items: item)
+                        .onTapGesture {
+                            withAnimation(.easeInOut){
+                                listViewModel.updateItem(item:item)
+                            }
+                        }
+                }
             }
+            .onDelete(perform: listViewModel.deleteItem)
+            .onMove(perform: listViewModel.moveItem)
         }
-        .navigationTitle("Your Trips")
+        .navigationTitle("Your Items")
         .navigationBarItems(leading: EditButton(), trailing:
                                 NavigationLink("Add", destination: AddView()))
     }
@@ -31,4 +36,5 @@ struct ListView: View {
     NavigationView{
         ListView()
     }
+    .environmentObject(ListViewModel())
 }

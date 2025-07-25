@@ -8,9 +8,19 @@
 import Foundation
 
 struct ItemModel: Identifiable{
-    let id: String = UUID().uuidString
-    var itemName: String
+    let id: String
+    var name: String
     var isChecked: Bool
+    
+    init(id: String = UUID().uuidString, name: String, isChecked: Bool){
+        self.id = UUID().uuidString
+        self.name = name
+        self.isChecked = isChecked
+    }
+    
+    func updateCompletion() -> ItemModel {
+        return ItemModel(id: id, name: name, isChecked: !isChecked)
+    }
 }
 
 
