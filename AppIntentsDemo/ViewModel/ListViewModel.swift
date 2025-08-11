@@ -53,3 +53,26 @@ class ListViewModel: ObservableObject{
         }
     }
 }
+
+extension ListViewModel {
+    
+    static let shared = ListViewModel()
+    
+    func getAllItemEntities() -> [ItemEntity] {
+        return items.map { ItemEntity(from: $0) }
+    }
+    
+    func removeItem(byId id: String) -> Bool {
+        guard let index = items.firstIndex(where: { $0.id == id }) else {
+            return false
+        }
+        items.remove(at: index)
+        return true
+    }
+    
+    func addItemViaIntent(name: String) {
+        addItems(title: name)
+    }
+}
+    
+    

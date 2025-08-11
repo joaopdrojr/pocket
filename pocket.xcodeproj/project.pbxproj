@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5E23AAAE2E4A331F0049941B /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E23AAAD2E4A331F0049941B /* AppIntents.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		5E23AAAD2E4A331F0049941B /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
 		5E6C8AA72DEA3A2000B2A689 /* AppIntentsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIntentsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -23,16 +28,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E23AAAE2E4A331F0049941B /* AppIntents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E23AAAC2E4A331F0049941B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E23AAAD2E4A331F0049941B /* AppIntents.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E6C8A9E2DEA3A2000B2A689 = {
 			isa = PBXGroup;
 			children = (
 				5E6C8AA92DEA3A2000B2A689 /* AppIntentsDemo */,
+				5E23AAAC2E4A331F0049941B /* Frameworks */,
 				5E6C8AA82DEA3A2000B2A689 /* Products */,
 			);
 			sourceTree = "<group>";
