@@ -13,7 +13,7 @@ struct ItemModel: Identifiable, Codable{
     var isChecked: Bool
     
     init(id: String = UUID().uuidString, name: String, isChecked: Bool){
-        self.id = UUID().uuidString
+        self.id = id
         self.name = name
         self.isChecked = isChecked
     }
