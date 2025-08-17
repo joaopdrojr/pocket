@@ -19,7 +19,7 @@ struct CompleteItemIntent: AppIntent {
         let success = ListViewModel.shared.completeItem(byId: item.id)
         
         if success {
-            return .result(dialog: "Marked '\(item.name)' as completed! ✓")
+            return .result(dialog: "Marked '\(item.name)' as completed!")
         } else {
             return .result(dialog: "Sorry, I couldn't find '\(item.name)' in your pocket or it's already completed.")
         }

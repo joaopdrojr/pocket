@@ -52,7 +52,7 @@ struct AddView: View {
     
     func textIsValid() -> Bool {
         if textFieldText.isEmpty{
-            alertTitle = "The filed can not be empty"
+            alertTitle = "Item name can not be empty"
             showAlert.toggle()
             return false
         }
