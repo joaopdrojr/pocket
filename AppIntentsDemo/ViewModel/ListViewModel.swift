@@ -52,6 +52,21 @@ class ListViewModel: ObservableObject{
             UserDefaults.standard.set(encodedData, forKey: itemsKey)
         }
     }
+    func completeItem(byId id: String) -> Bool {
+        guard let index = items.firstIndex(where: { $0.id == id && !$0.isChecked }) else {
+            return false
+        }
+        items[index] = items[index].updateCompletion()
+        return true
+    }
+    
+    func uncompleteItem(byId id: String) -> Bool {
+        guard let index = items.firstIndex(where: { $0.id == id && $0.isChecked }) else {
+            return false
+        }
+        items[index] = items[index].updateCompletion()
+        return true
+    }
 }
 
 extension ListViewModel {
@@ -74,5 +89,5 @@ extension ListViewModel {
         addItems(title: name)
     }
 }
-    
-    
+
+

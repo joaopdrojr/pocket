@@ -20,7 +20,7 @@ struct AddView: View {
                 TextField("Item name...", text: $textFieldText)
                     .padding(.horizontal)
                     .frame(height: 55)
-                    .background(Color.secondary)
+                    .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
                 
                 Button{
@@ -31,7 +31,7 @@ struct AddView: View {
                         .font(.headline)
                         .frame(height: 55)
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(Color.main)
                         .cornerRadius(10)
                 }
             }

@@ -27,10 +27,7 @@ struct PocketShortcuts: AppShortcutsProvider {
         AppShortcut(
             intent: AddItemIntent(),
             phrases: [
-                "Add \(\.$itemName) to my pocket",
-                "Put \(\.$itemName) in pocket",
-                "Pocket \(\.$itemName)",
-                "Add \(\.$itemName) to pocket list"
+                "Add \(\.$itemName) to pocket"
             ],
             shortTitle: "Add to Pocket",
             systemImageName: "plus.circle"
@@ -39,13 +36,28 @@ struct PocketShortcuts: AppShortcutsProvider {
         AppShortcut(
             intent: RemoveItemIntent(),
             phrases: [
-                "Remove \(\.$item) from pocket",
-                "Delete \(\.$item) from my pocket",
-                "Take out \(\.$item)",
-                "Remove \(\.$item) from pocket list"
+                "Remove \(\.$item) from pocket"
             ],
             shortTitle: "Remove from Pocket",
             systemImageName: "minus.circle"
+        )
+        
+        AppShortcut(
+            intent: CompleteItemIntent(),
+            phrases: [
+                "Mark \(\.$item) as done"
+            ],
+            shortTitle: "Mark as Done",
+            systemImageName: "checkmark.circle"
+        )
+        
+        AppShortcut(
+            intent: UncompleteItemIntent(),
+            phrases: [
+                "Mark \(\.$item) as pending"
+            ],
+            shortTitle: "Mark as Pending",
+            systemImageName: "arrow.counterclockwise.circle"
         )
     }
 }

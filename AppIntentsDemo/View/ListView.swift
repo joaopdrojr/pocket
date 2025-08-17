@@ -11,23 +11,30 @@ struct ListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
-        List{
-            ForEach(listViewModel.items) { item in
-                HStack{
-                    ItemListRowView(items: item)
-                        .onTapGesture {
-                            withAnimation(.easeInOut){
-                                listViewModel.updateItem(item:item)
-                            }
+        ZStack{
+            if listViewModel.items.isEmpty {
+                NoItemsView()
+            } else {
+                List{
+                    ForEach(listViewModel.items) { item in
+                        HStack{
+                            ItemListRowView(items: item)
+                                .onTapGesture {
+                                    withAnimation(.easeInOut){
+                                        listViewModel.updateItem(item:item)
+                                    }
+                                }
                         }
+                    }
+                    .onDelete(perform: listViewModel.deleteItem)
+                    .onMove(perform: listViewModel.moveItem)
                 }
             }
-            .onDelete(perform: listViewModel.deleteItem)
-            .onMove(perform: listViewModel.moveItem)
         }
-        .navigationTitle("Your Items")
+        .navigationTitle("Your Items 🎒")
         .navigationBarItems(leading: EditButton(), trailing:
                                 NavigationLink("Add", destination: AddView()))
+        .tint(Color.main)
     }
 }
 
